@@ -1,0 +1,49 @@
+{
+    "builders": [
+        {
+            "ami_name": "interrobangc-nginx-example",
+            "instance_type": "t2.nano",
+            "region": "us-west-2",
+            "source_ami_filter": {
+                "filters": {
+                    "virtualization-type": "hvm",
+                    "name": "CentOS Linux 7 x86_64*",
+                    "root-device-type": "ebs"
+                },
+                "owners": [
+                    "679593333241"
+                ],
+                "most_recent": true
+            },
+            "tags": {
+                "Service": "www"
+            },
+            "ssh_username": "centos",
+            "type": "amazon-ebs",
+            "force_deregister": "true",
+            "force_delete_snapshot": "true"
+        }
+    ],
+    "provisioners": [
+        {
+            "type": "file",
+            "source": "./nginx/index.html",
+            "destination": "/tmp/index.html"
+        },
+        {
+            "type": "file",
+            "source": "./nginx/default.conf",
+            "destination": "/tmp/default.conf"
+        },
+        {
+            "type": "shell",
+            "inline": [
+                "sudo yum install docker -y",
+                "sudo mkdir -p /var/www/site",
+                "sudo mv /tmp/index.html /var/www/site/index.html",
+                "sudo mkdir -p /etc/nginx/conf.d",
+                "sudo mv /tmp/default.conf /etc/nginx/conf.d/default"
+            ]
+        }
+    ]
+}
