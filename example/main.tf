@@ -37,7 +37,7 @@ data "aws_ami" "www" {
 }
 
 module "www" {
-  source = "../modules/alb_service/"
+  source = "github.com/interrobangc/terraform-aws-alb-service?ref=v0.1.1"
 
   name = "www"
   env  = "${var.env}"

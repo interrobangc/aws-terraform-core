@@ -47,6 +47,11 @@ variable "mgmt_enable_nat_gateway" {
   default     = true
 }
 
+variable "mgmt_single_nat_gateway" {
+  description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
+  default     = false
+}
+
 variable "mgmt_enable_vpn_gateway" {
   description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC in mgmt"
   default     = true
@@ -106,6 +111,11 @@ variable "prod_enable_nat_gateway" {
   default     = true
 }
 
+variable "prod_single_nat_gateway" {
+  description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
+  default     = false
+}
+
 variable "prod_enable_vpn_gateway" {
   description = "Should be true if you want to create a new VPN Gateway resource and attach it to the VPC in prod"
   default     = false
@@ -158,6 +168,11 @@ variable "dev_database_subnets" {
 variable "dev_enable_nat_gateway" {
   description = "Should be true if you want to provision NAT Gateways for each of your private networks in dev"
   default     = true
+}
+
+variable "dev_single_nat_gateway" {
+  description = "Should be true if you want to provision a single shared NAT Gateway across all of your private networks"
+  default     = false
 }
 
 variable "dev_enable_vpn_gateway" {

@@ -15,59 +15,29 @@ keygen:
 	if [ ! -f ".ssh/terraform" ]; then ssh-keygen -f .ssh/terraform; fi
 
 fmt:
-	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:light fmt
+	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:0.11.8 fmt
 
 get:
-	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:light get --update
+	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:0.11.8 get --update
 
 init:
-	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:light init
+	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:0.11.8 init
 
 plan:
 ifdef DEBUG
 	export TF_LOG="DEBUG"
 endif
-	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:light plan
+	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:0.11.8 plan
 	export TF_LOG=
 
 apply:
 ifdef DEBUG
 	export TF_LOG="DEBUG"
 endif
-	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:light apply
+	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:0.11.8 apply
 
 destroy:
 ifdef DEBUG
 	export TF_LOG="DEBUG"
 endif
-	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:light destroy
-
-example-full: example-packer example
-
-example: example-core example-dev
-
-example-packer:
-	cd example/packer && \
-	make
-
-example-core:
-	cd example/environments/core && \
-	make apply tf_args="-auto-approve"
-
-example-dev:
-	cd example/environments/dev && \
-	make apply tf_args="-auto-approve"
-
-example-prod:
-	cd example/environments/prod && \
-	make apply tf_args="-auto-approve"
-
-example-destroy: example-destroy-dev example-destroy-core
-
-example-destroy-dev:
-	cd example/environments/dev && \
-	make destroy tf_args="-auto-approve"
-
-example-destroy-core:
-	cd example/environments/core && \
-	make destroy tf_args="-auto-approve"
+	docker run -it --rm $(SECRETS) $(PWD_ARG) hashicorp/terraform:0.11.8 destroy

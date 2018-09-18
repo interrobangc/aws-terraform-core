@@ -9,34 +9,39 @@ export AWS_SECRET_ACCESS_KEY="v00000000000000000000000000000000"
 export AWS_DEFAULT_REGION="us-west-2"
 ```
 
-Bring up entire example stack:
+Bring up example stack by running the following in the `./example` directory:
 
 Run full example:
 ```
-make example-full
+make full
 ```
 
 Destroy full example:
 ```
-make example-destroy
+make destroy
 ```
 
 Create AMIs
 ```
-make example-packer
+make packer
 ```
 
 Configure core (must finish before dev or prod can be configured):
 ```
-make example-core
+make apply
+```
+
+Configure core:
+```
+make apply-core
 ```
 
 Configure dev:
 ```
-make example-dev
+make apply-dev
 ```
 
 Configure prod:
 ```
-make example-prod
+make apply-prod
 ```

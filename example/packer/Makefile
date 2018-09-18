@@ -1,4 +1,4 @@
-.PHONY: test build push run install shell
+.PHONY: keygen get init plan apply destroy
 
 SECRETS = -e AWS_DEFAULT_REGION -e AWS_SECRET_ACCESS_KEY -e AWS_ACCESS_KEY_ID
 MY_PWD := $(shell pwd)
