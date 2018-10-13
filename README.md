@@ -1,4 +1,4 @@
-##Quickstart
+## Quickstart
 
 Setup an s3 bucket for shared state. Search and replace `tf-state-interrobangc` with the new bucket name in `./example`
 

@@ -22,6 +22,7 @@ output "data" {
       "subnets", map(
         "private", "${module.dev_vpc.private_subnets}",
         "public", "${module.dev_vpc.public_subnets}",
+        "database", "${module.dev_vpc.database_subnets}",
       ),
     ),
     "prod", map(
@@ -34,6 +35,7 @@ output "data" {
       "subnets", map(
         "private", "${module.prod_vpc.private_subnets}",
         "public", "${module.prod_vpc.public_subnets}",
+        "database", "${module.prod_vpc.database_subnets}",
       ),
     ),
     "mgmt", map(
@@ -46,6 +48,7 @@ output "data" {
       "subnets", map(
         "private", "${module.mgmt_vpc.private_subnets}",
         "public", "${module.mgmt_vpc.public_subnets}",
+        "database", "${module.mgmt_vpc.database_subnets}",
       ),
     )
   )}"
