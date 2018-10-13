@@ -12,7 +12,7 @@ resource "aws_key_pair" "terraform_ec2_key" {
 }
 
 module "mgmt_vpc" {
-  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.2"
+  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.3"
   env    = "${var.mgmt_env}"
 
   cidr             = "${var.mgmt_cidr}"
@@ -36,7 +36,7 @@ module "mgmt_sg" {
 }
 
 module "prod_vpc" {
-  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.2"
+  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.3"
   env    = "${var.prod_env}"
 
   create_vpc       = "${var.create_prod_vpc}"
@@ -85,7 +85,7 @@ module "prod_vpc_peering" {
 }
 
 module "dev_vpc" {
-  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.2"
+  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.3"
   env    = "${var.dev_env}"
 
   create_vpc       = "${var.create_dev_vpc}"
