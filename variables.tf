@@ -33,13 +33,13 @@ variable "mgmt_public_subnets" {
 
 variable "mgmt_create_database_subnet_group" {
   description = "Controls if database subnet group should be created"
-  default     = false
+  default     = true
 }
 
 variable "mgmt_database_subnets" {
   type        = "list"
   description = "A list of database subnets"
-  default     = []
+  default     = ["10.10.201.0/24", "10.10.202.0/24"]
 }
 
 variable "mgmt_enable_nat_gateway" {
