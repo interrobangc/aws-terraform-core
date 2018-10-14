@@ -46,7 +46,7 @@ output "data" {
     ),
     "mgmt", map(
       "sgs", map(
-        "public_web", "${module.prod_sg.public_web}",
+        "public_web", "${module.mgmt_sg.public_web}",
         "public_ssh", "${module.mgmt_sg.public_ssh}",
         "allow_egress", "${module.mgmt_sg.allow_egress}",
         "bastion_ssh", "${module.bastion.sg_ssh_allow_bastion[0]}",
