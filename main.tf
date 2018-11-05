@@ -15,6 +15,8 @@ module "mgmt_vpc" {
   source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.3"
   env    = "${var.mgmt_env}"
 
+  azs = "${var.mgmt_azs}"
+
   cidr             = "${var.mgmt_cidr}"
   private_subnets  = ["${var.mgmt_private_subnets}"]
   public_subnets   = ["${var.mgmt_public_subnets}"]
@@ -38,6 +40,8 @@ module "mgmt_sg" {
 module "prod_vpc" {
   source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.3"
   env    = "${var.prod_env}"
+
+  azs = "${var.prod_azs}"
 
   create_vpc       = "${var.create_prod_vpc}"
   cidr             = "${var.prod_cidr}"
@@ -87,6 +91,8 @@ module "prod_vpc_peering" {
 module "dev_vpc" {
   source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.3"
   env    = "${var.dev_env}"
+
+  azs = "${var.dev_azs}"
 
   create_vpc       = "${var.create_dev_vpc}"
   cidr             = "${var.dev_cidr}"

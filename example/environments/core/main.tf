@@ -20,10 +20,10 @@ module "core" {
   # VPC ElasticIP limit from at least 5 to 6. In our demo we only run
   # a single nat gateway per VPC. In production, you should run 1 per
   # AZ.
-  mgmt_enable_nat_gateway = false
+  mgmt_enable_nat_gateway = true
   mgmt_single_nat_gateway = true
-  prod_enable_nat_gateway = false
+  prod_enable_nat_gateway = true
   prod_single_nat_gateway = true
-  dev_enable_nat_gateway  = false
+  dev_enable_nat_gateway  = true
   dev_single_nat_gateway  = true
 }
