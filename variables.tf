@@ -184,3 +184,8 @@ variable "map_public_ip_on_launch" {
   description = "On public subnets do you want to default to a public IP"
   default     = false
 }
+
+variable "bastion_ami" {
+  description = "AMI to use for bastion host"
+  default     = "ami-3ecc8f46"
+}

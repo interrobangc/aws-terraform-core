@@ -142,6 +142,7 @@ module "dev_vpc_peering" {
 module "bastion" {
   source = "github.com/interrobangc/terraform-aws-bastion?ref=v0.1.4"
   env    = "${var.mgmt_env}"
+  ami    = "${var.bastion_ami}"
 
   vpc_id        = "${module.mgmt_vpc.id}"
   vpc_ids_count = 3
