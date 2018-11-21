@@ -23,6 +23,8 @@ output "data" {
         "private", "${module.dev_vpc.private_subnets}",
         "public", "${module.dev_vpc.public_subnets}",
         "database", "${module.dev_vpc.database_subnets}",
+        "natgw_ids", "${module.dev_vpc.natgw_ids}",
+        "azs", "${var.dev_azs}",
       ),
       "vars", map(
         "database_subnet_group", "${module.dev_vpc.database_subnet_group}",
@@ -39,6 +41,8 @@ output "data" {
         "private", "${module.prod_vpc.private_subnets}",
         "public", "${module.prod_vpc.public_subnets}",
         "database", "${module.prod_vpc.database_subnets}",
+        "natgw_ids", "${module.prod_vpc.natgw_ids}",
+        "azs", "${var.prod_azs}",
       ),
       "vars", map(
         "database_subnet_group", "${module.prod_vpc.database_subnet_group}",
@@ -55,6 +59,8 @@ output "data" {
         "private", "${module.mgmt_vpc.private_subnets}",
         "public", "${module.mgmt_vpc.public_subnets}",
         "database", "${module.mgmt_vpc.database_subnets}",
+        "natgw_ids", "${module.mgmt_vpc.natgw_ids}",
+        "azs", "${var.mgmt_azs}",
       ),
       "vars", map(
         "database_subnet_group", "${module.mgmt_vpc.database_subnet_group}",
