@@ -42,6 +42,24 @@ variable "mgmt_database_subnets" {
   default     = ["10.10.201.0/24", "10.10.202.0/24"]
 }
 
+variable "mgmt_redshift_subnets" {
+  type        = "list"
+  description = "A list of redshift subnets"
+  default     = []
+}
+
+variable "mgmt_elasticache_subnets" {
+  type        = "list"
+  description = "A list of elasticache subnets"
+  default     = []
+}
+
+variable "mgmt_intra_subnets" {
+  type        = "list"
+  description = "A list of intra subnets"
+  default     = []
+}
+
 variable "mgmt_enable_nat_gateway" {
   description = "Should be true if you want to provision NAT Gateways for each of your private networks in mgmt"
   default     = true
@@ -106,6 +124,24 @@ variable "prod_database_subnets" {
   default     = ["10.0.201.0/24", "10.0.202.0/24"]
 }
 
+variable "prod_redshift_subnets" {
+  type        = "list"
+  description = "A list of redshift subnets"
+  default     = []
+}
+
+variable "prod_elasticache_subnets" {
+  type        = "list"
+  description = "A list of elasticache subnets"
+  default     = []
+}
+
+variable "prod_intra_subnets" {
+  type        = "list"
+  description = "A list of intra subnets"
+  default     = []
+}
+
 variable "prod_enable_nat_gateway" {
   description = "Should be true if you want to provision NAT Gateways for each of your private networks in prod"
   default     = true
@@ -163,6 +199,24 @@ variable "dev_database_subnets" {
   type        = "list"
   description = "A list of database subnets"
   default     = ["10.1.201.0/24", "10.1.202.0/24"]
+}
+
+variable "dev_redshift_subnets" {
+  type        = "list"
+  description = "A list of redshift subnets"
+  default     = []
+}
+
+variable "dev_elasticache_subnets" {
+  type        = "list"
+  description = "A list of elasticache subnets"
+  default     = []
+}
+
+variable "dev_intra_subnets" {
+  type        = "list"
+  description = "A list of intra subnets"
+  default     = []
 }
 
 variable "dev_enable_nat_gateway" {

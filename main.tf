@@ -12,7 +12,7 @@ resource "aws_key_pair" "terraform_ec2_key" {
 }
 
 module "mgmt_vpc" {
-  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.4"
+  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.5"
   env    = "${var.mgmt_env}"
 
   azs = "${var.mgmt_azs}"
@@ -21,6 +21,10 @@ module "mgmt_vpc" {
   private_subnets  = ["${var.mgmt_private_subnets}"]
   public_subnets   = ["${var.mgmt_public_subnets}"]
   database_subnets = ["${var.mgmt_database_subnets}"]
+
+  redshift_subnets    = ["${var.mgmt_redshift_subnets}"]
+  elasticache_subnets = ["${var.mgmt_elasticache_subnets}"]
+  intra_subnets       = ["${var.mgmt_intra_subnets}"]
 
   map_public_ip_on_launch = "${var.map_public_ip_on_launch}"
 
@@ -38,7 +42,7 @@ module "mgmt_sg" {
 }
 
 module "prod_vpc" {
-  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.4"
+  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.5"
   env    = "${var.prod_env}"
 
   azs = "${var.prod_azs}"
@@ -48,6 +52,10 @@ module "prod_vpc" {
   private_subnets  = ["${var.prod_private_subnets}"]
   public_subnets   = ["${var.prod_public_subnets}"]
   database_subnets = ["${var.prod_database_subnets}"]
+
+  redshift_subnets    = ["${var.prod_redshift_subnets}"]
+  elasticache_subnets = ["${var.prod_elasticache_subnets}"]
+  intra_subnets       = ["${var.prod_intra_subnets}"]
 
   map_public_ip_on_launch = "${var.map_public_ip_on_launch}"
 
@@ -89,7 +97,7 @@ module "prod_vpc_peering" {
 }
 
 module "dev_vpc" {
-  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.4"
+  source = "github.com/interrobangc/terraform-aws-vpc?ref=v0.1.5"
   env    = "${var.dev_env}"
 
   azs = "${var.dev_azs}"
@@ -99,6 +107,10 @@ module "dev_vpc" {
   private_subnets  = ["${var.dev_private_subnets}"]
   public_subnets   = ["${var.dev_public_subnets}"]
   database_subnets = ["${var.dev_database_subnets}"]
+
+  redshift_subnets    = ["${var.dev_redshift_subnets}"]
+  elasticache_subnets = ["${var.dev_elasticache_subnets}"]
+  intra_subnets       = ["${var.dev_intra_subnets}"]
 
   map_public_ip_on_launch = "${var.map_public_ip_on_launch}"
 
