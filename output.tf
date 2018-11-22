@@ -28,6 +28,11 @@ output "data" {
       ),
       "vars", map(
         "database_subnet_group", "${module.dev_vpc.database_subnet_group}",
+        "elasticache_subnets", "${module.dev_vpc.elasticache_subnets}",
+        "elasticache_subnet_group", "${module.dev_vpc.elasticache_subnet_group}",
+        "elasticache_subnet_group_name", "${module.dev_vpc.elasticache_subnet_group_name}",
+        "redshift_subnets", "${module.dev_vpc.redshift_subnets}",
+        "redshift_subnets", "${module.dev_vpc.redshift_subnets}",
       ),
     ),
     "prod", map(
@@ -46,6 +51,11 @@ output "data" {
       ),
       "vars", map(
         "database_subnet_group", "${module.prod_vpc.database_subnet_group}",
+        "elasticache_subnets", "${module.prod_vpc.elasticache_subnets}",
+        "elasticache_subnet_group", "${module.prod_vpc.elasticache_subnet_group}",
+        "elasticache_subnet_group_name", "${module.prod_vpc.elasticache_subnet_group_name}",
+        "redshift_subnets", "${module.prod_vpc.redshift_subnets}",
+        "redshift_subnets", "${module.prod_vpc.redshift_subnets}",
       ),
     ),
     "mgmt", map(
@@ -64,6 +74,11 @@ output "data" {
       ),
       "vars", map(
         "database_subnet_group", "${module.mgmt_vpc.database_subnet_group}",
+        "elasticache_subnets", "${module.mgmt_vpc.elasticache_subnets}",
+        "elasticache_subnet_group", "${module.mgmt_vpc.elasticache_subnet_group}",
+        "elasticache_subnet_group_name", "${module.mgmt_vpc.elasticache_subnet_group_name}",
+        "redshift_subnets", "${module.mgmt_vpc.redshift_subnets}",
+        "redshift_subnets", "${module.mgmt_vpc.redshift_subnets}",
       ),
     )
   )}"
