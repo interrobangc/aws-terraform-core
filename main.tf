@@ -166,6 +166,8 @@ module "bastion" {
 
   key_name = "terraform_ec2_key"
 
+  instance_type = "${var.bastion_instance_type}"
+
   security_groups = [
     "${module.mgmt_sg.public_ssh}",
     "${module.mgmt_sg.allow_egress}",

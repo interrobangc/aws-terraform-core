@@ -80,6 +80,11 @@ variable "bastion_count" {
   default     = false
 }
 
+variable "bastion_instance_type" {
+  description = "instance type for bastion"
+  default     = "t2.nano"
+}
+
 variable "create_prod_vpc" {
   description = "Controls if prod VPC should be created (it affects almost all resources)"
   default     = true
