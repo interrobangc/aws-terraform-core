@@ -35,7 +35,7 @@ module "mgmt_vpc" {
 }
 
 module "mgmt_sg" {
-  source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2"
+  source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2.1"
   env    = var.mgmt_env
 
   vpc_id = module.mgmt_vpc.id
@@ -66,7 +66,7 @@ module "prod_vpc" {
 }
 
 module "prod_sg" {
-  source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2"
+  source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2.1"
 
   create_security_groups = var.create_prod_vpc
 
@@ -121,7 +121,7 @@ module "dev_vpc" {
 }
 
 module "dev_sg" {
-  source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2"
+  source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2.1"
 
   create_security_groups = var.create_dev_vpc
 
