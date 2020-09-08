@@ -18,13 +18,13 @@ module "mgmt_vpc" {
   azs = var.mgmt_azs
 
   cidr             = var.mgmt_cidr
-  private_subnets  = join(", ", var.mgmt_private_subnets)
-  public_subnets   = join(", ", var.mgmt_public_subnets)
-  database_subnets = join(", ", var.mgmt_database_subnets)
+  private_subnets  = var.mgmt_private_subnets
+  public_subnets   = var.mgmt_public_subnets
+  database_subnets = var.mgmt_database_subnets
 
-  redshift_subnets    = join(", ", var.mgmt_redshift_subnets)
-  elasticache_subnets = join(", ", var.mgmt_elasticache_subnets)
-  intra_subnets       = join(", ", var.mgmt_intra_subnets)
+  redshift_subnets    = var.mgmt_redshift_subnets
+  elasticache_subnets = var.mgmt_elasticache_subnets
+  intra_subnets       = var.mgmt_intra_subnets
 
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
@@ -49,13 +49,13 @@ module "prod_vpc" {
 
   create_vpc       = var.create_prod_vpc
   cidr             = var.prod_cidr
-  private_subnets  = join(", ", var.prod_private_subnets)
-  public_subnets   = join(", ", var.prod_public_subnets)
-  database_subnets = join(", ", var.prod_database_subnets)
+  private_subnets  = var.prod_private_subnets
+  public_subnets   = var.prod_public_subnets
+  database_subnets = var.prod_database_subnets
 
-  redshift_subnets    = join(", ", var.prod_redshift_subnets)
-  elasticache_subnets = join(", ", var.prod_elasticache_subnets)
-  intra_subnets       = join(", ", var.prod_intra_subnets)
+  redshift_subnets    = var.prod_redshift_subnets
+  elasticache_subnets = var.prod_elasticache_subnets
+  intra_subnets       = var.prod_intra_subnets
 
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
@@ -104,13 +104,13 @@ module "dev_vpc" {
 
   create_vpc       = var.create_dev_vpc
   cidr             = var.dev_cidr
-  private_subnets  = join(", ", var.dev_private_subnets)
-  public_subnets   = join(", ", var.dev_public_subnets)
-  database_subnets = join(", ", var.dev_database_subnets)
+  private_subnets  = var.dev_private_subnets
+  public_subnets   = var.dev_public_subnets
+  database_subnets = var.dev_database_subnets
 
-  redshift_subnets    = join(", ", var.dev_redshift_subnets)
-  elasticache_subnets = join(", ", var.dev_elasticache_subnets)
-  intra_subnets       = join(", ", var.dev_intra_subnets)
+  redshift_subnets    = var.dev_redshift_subnets
+  elasticache_subnets = var.dev_elasticache_subnets
+  intra_subnets       = var.dev_intra_subnets
 
   map_public_ip_on_launch = var.map_public_ip_on_launch
 
