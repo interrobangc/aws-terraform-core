@@ -17,7 +17,7 @@ output "data" {
         public_web = module.dev_sg.public_web
         public_ssh = module.dev_sg.public_ssh
         allow_egress = module.dev_sg.allow_egress
-        bastion_ssh = module.bastion.sg_ssh_allow_bastion.1
+        bastion_ssh = var.create_mgmt_vpc ? module.bastion.sg_ssh_allow_bastion.1 : ''
       },
       subnets = {
         private = module.dev_vpc.private_subnets
@@ -37,7 +37,7 @@ output "data" {
         public_web = module.prod_sg.public_web
         public_ssh = module.prod_sg.public_ssh
         allow_egress = module.prod_sg.allow_egress
-        bastion_ssh = module.bastion.sg_ssh_allow_bastion.2
+        bastion_ssh = var.create_mgmt_vpc ? module.bastion.sg_ssh_allow_bastion.2: ''
       },
       subnets = {
         private = module.prod_vpc.private_subnets
@@ -57,7 +57,7 @@ output "data" {
         public_web = module.mgmt_sg.public_web
         public_ssh = module.mgmt_sg.public_ssh
         allow_egress = module.mgmt_sg.allow_egress
-        bastion_ssh = module.bastion.sg_ssh_allow_bastion.0
+        bastion_ssh = var.create_mgmt_vpc ? module.bastion.sg_ssh_allow_bastion.0 : ''
       },
       subnets = {
         private = module.mgmt_vpc.private_subnets
