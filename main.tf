@@ -78,7 +78,7 @@ module "prod_sg" {
 }
 
 module "prod_vpc_peering" {
-  source = "github.com/interrobangc/terraform-aws-vpc-peering?ref=v0.2.3"
+  source = "github.com/interrobangc/terraform-aws-vpc-peering?ref=v0.2.4"
 
   create_vpc_peering = var.create_prod_vpc
 
@@ -133,7 +133,7 @@ module "dev_sg" {
 }
 
 module "dev_vpc_peering" {
-  source = "github.com/interrobangc/terraform-aws-vpc-peering?ref=v0.2.3"
+  source = "github.com/interrobangc/terraform-aws-vpc-peering?ref=v0.2.4"
 
   create_vpc_peering = var.create_mgmt_vpc ? var.create_dev_vpc : false
 
