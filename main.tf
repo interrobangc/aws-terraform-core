@@ -17,6 +17,7 @@ module "mgmt_vpc" {
 
   azs = var.mgmt_azs
 
+  create_vpc       = var.create_mgmt_vpc
   cidr             = var.mgmt_cidr
   private_subnets  = var.mgmt_private_subnets
   public_subnets   = var.mgmt_public_subnets
@@ -37,6 +38,8 @@ module "mgmt_vpc" {
 module "mgmt_sg" {
   source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2.1"
   env    = var.mgmt_env
+
+  create_security_groups = var.create_mgmt_vpc
 
   vpc_id = module.mgmt_vpc.id
 }
@@ -68,7 +71,7 @@ module "prod_vpc" {
 module "prod_sg" {
   source = "github.com/interrobangc/terraform-aws-security-groups?ref=v0.2.1"
 
-  create_security_groups = var.create_prod_vpc
+  create_security_groups = var.create_mgmt_vpc ? var.create_prod_vpc : false
 
   env    = var.prod_env
   vpc_id = module.prod_vpc.id
@@ -132,7 +135,7 @@ module "dev_sg" {
 module "dev_vpc_peering" {
   source = "github.com/interrobangc/terraform-aws-vpc-peering?ref=v0.2.2"
 
-  create_vpc_peering = var.create_dev_vpc
+  create_vpc_peering = var.create_mgmt_vpc ? var.create_dev_vpc : false
 
   owner_account_id = ""
   vpc_peer_id      = module.dev_vpc.id
@@ -174,6 +177,6 @@ module "bastion" {
   ]
 
   # count can't be calculated, so we have to get it from a hard variable
-  bastion_count = var.bastion_count
+  bastion_count = var.create_mgmt_vpc ? var.bastion_count : 0
   subnets = module.mgmt_vpc.public_subnets
 }

@@ -3,6 +3,11 @@ variable "region" {
   default     = "us-west-2"
 }
 
+variable "create_mgmt_vpc" {
+  description = "Controls if mgmt VPC should be created (it affects almost all resources)"
+  default     = true
+}
+
 variable "mgmt_env" {
   description = "Environment we are running mgmt in"
   default     = "mgmt"
