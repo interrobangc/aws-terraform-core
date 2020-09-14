@@ -155,7 +155,7 @@ module "dev_vpc_peering" {
 }
 
 module "bastion" {
-  source = "github.com/interrobangc/terraform-aws-bastion?ref=v0.2.6"
+  source = "github.com/interrobangc/terraform-aws-bastion?ref=v0.2.7"
   env    = var.mgmt_env
   ami    = var.bastion_ami
 
